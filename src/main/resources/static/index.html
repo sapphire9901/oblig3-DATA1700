@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oblig1</title>
+    <script src="billettsalg.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<!---lager en overskrift-->
+<h2>Bestilling av kinobilletter</h2>
+<!--lager tabell med et klassenavn-->
+<table class="bestillingstabell">
+    <!--første navn i tabellen den har rullegardin derfor bruker jeg option--->
+    <tr><td>Film</td><td>
+        <label for="film"></label><select id="film">
+        <!--bruker disabled selected for at man ikke kan velge den --->
+        <option value="" disabled selected>Velg film her</option>
+        <option>Aquaman</option>
+        <option>Tunellen</option>
+        <option>Bølgen</option>
+        <option>Torden</option>
+        <option>Troll</option>
+    </select>
+        <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
+        <div id="error_film"></div>
+    </td></tr>
+    <!---andre navn i tabellen og den er av typen rullgardin og jeg har valgt bare fire alternativ--->
+    <tr><td>Antall</td><td>
+        <label for="antall"></label><select id="antall"  >
+        <!--her også bruker jeg disabled selected for at man ikke kan velge 0 som alternativ--->
+        <option value="" disabled selected>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+        <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
+        <div id="error_antall"></div>
+    </td></tr>
+
+    <tr><td>Fornavn</td><td><label for="navn"></label><input type="text" id="navn" placeholder="Fornavnet ditt.."/>
+        <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
+        <div id="error_fornavn"></div>
+    </td></tr>
+    <tr><td>Etternavn</td><td><label for="etternavn"></label><input type="text" id="etternavn" placeholder="Etternavnet ditt.."/>
+        <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
+        <div id="error_etternavn"></div>
+    </td></tr>
+    <tr><td>Telefon</td><td><label for="telefon"></label><input type="text" id="telefon" placeholder="telefonnummeret ditt.."/>
+        <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
+        <div id="error_telefon"></div>
+    </td></tr>
+    <tr><td>E-post</td><td><label for="epostadresse"></label><input type="text" id="epostadresse" placeholder="E-posten din.."/>
+        <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
+        <div id="error_epost"></div>
+    </td></tr>
+
+</table>
+<br>
+<!--lager en knapp der hvis man trykker så vil den registrere billettene og vise tabellen for registrer()--->
+<button onclick="registrer()">Kjøp billett</button>
+<h3>Alle billetter</h3>
+
+<!--her er et annet tabell for billetter som er registrert--->
+<table id="billettTabell">
+    <tr><td><div id="filmRegister"></div></td></tr>
+</table>
+<br>
+<!--knapp for å slette tabellen hvis man trykker på den--->
+<button onclick="slettRegister()">Slett alle billettene</button>
+
+</body>
+</html>

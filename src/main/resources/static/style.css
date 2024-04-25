@@ -1,0 +1,29 @@
+/*defines a header and a cell in a table*/
+#billettTabell td, th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+/*defines a row in a table*/
+#billettTabell tr:nth-child(even){
+    background-color: #dddddd;
+}
+/*gjør valideringsskriften rødt*/
+#error_film{
+    color: red;
+}
+#error_antall{
+    color: red;
+}
+#error_fornavn{
+    color: red;
+}
+#error_etternavn{
+    color: red;
+}
+#error_telefon{
+    color: red;
+}
+#error_epost{
+    color: red;
+}
