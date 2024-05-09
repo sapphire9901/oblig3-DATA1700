@@ -9,34 +9,35 @@ public class Billettsalg {
     private String telefonnr;
     private String epost;
 
-    public Billettsalg(short id, String film, int antall, String fornavn, String etternavn, String telefonnr, String epost) {
+    public Billettsalg(){}
+
+    public Billettsalg(int id, String film, int antall, String fornavn, String etternavn, String telefonnr, String epost) {
+        this.id=id;
         this.film = film;
         this.antall = antall;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.telefonnr = telefonnr;
         this.epost = epost;
-        this.id=id;
-    }
-
-    public Billettsalg(){
 
     }
+
 
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 
-    public String getilm() {
+    public String getFilm() {
         return film;
     }
 
-    public void setVelgFilm(String velgFilm) {
-        this.film = velgFilm;
+    public void setFilm(String film) {
+        this.film = film;
     }
 
     public int getAntall() {
@@ -52,33 +53,39 @@ public class Billettsalg {
     }
 
     public void setFornavn(String fornavn) {
+
         this.fornavn = fornavn;
     }
 
     public String getEtternavn() {
+
         return etternavn;
     }
 
     public void setEtternavn(String etternavn) {
+
         this.etternavn = etternavn;
     }
 
     public String getTelefonnr() {
+
         return telefonnr;
     }
 
     public void setTelefonnr(String telefonnr) {
+
         this.telefonnr = telefonnr;
     }
 
     public String getEpost() {
+
         return epost;
     }
 
     public void setEpost(String epost) {
+
         this.epost = epost;
     }
-
 
 
 }

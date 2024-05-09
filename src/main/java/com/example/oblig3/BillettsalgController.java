@@ -5,37 +5,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @RestController
 public class BillettsalgController {
     @Autowired
-    BillettsalgRepository billettsalgRepository;
+    private BillettsalgRepository rep;
 
-    @PostMapping("/lagreBilett")
-    public void lagreBilett(Billettsalg billett){ billettsalgRepository.lagreBilett(billett);}
-
-    @GetMapping("/hentAlleBiletter")
-    public List<Billettsalg> hentAlleBiletter(){
-        List<Billettsalg> billett = billettsalgRepository.hentAlleBiletter();
-        Collections.sort(billett, new Comparator<Billettsalg>() {
-            @Override
-            public int compare(Billettsalg o1, Billettsalg o2) {
-                return o1.getEtternavn().compareTo(o2.getEtternavn());
-            }
-        });
-        return billett;
+    @PostMapping("/lagBillett")
+    public void lagreBillett(Billettsalg filmRegister) {
+        rep.lagreBillett(filmRegister);
     }
 
-    @GetMapping("/slettBilettene")
-    public void slettBilettene(){ billettsalgRepository.slettBilettene();}
+    @GetMapping("/hentAlleBillett")
+    public List<Billettsalg> hentAlleBillett() {
+        return rep.hentAlleBillett();
+    }
 
-    @GetMapping("/slettEnBilett")
-    public void slettEnBilett(short id){
-        billettsalgRepository.slettEnBilett(id);
+    @PostMapping("/slettAlle")
+    public void slettFilmRegister(){
+        rep.slettFilmRegister();
     }
 
 }

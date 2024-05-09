@@ -42,7 +42,7 @@
         <div id="error_antall"></div>
     </td></tr>
 
-    <tr><td>Fornavn</td><td><label for="navn"></label><input type="text" id="navn" placeholder="Fornavnet ditt.."/>
+    <tr><td>Fornavn</td><td><label for="fornavn"></label><input type="text" id="fornavn" placeholder="Fornavnet ditt.."/>
         <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
         <div id="error_fornavn"></div>
     </td></tr>
@@ -50,11 +50,11 @@
         <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
         <div id="error_etternavn"></div>
     </td></tr>
-    <tr><td>Telefon</td><td><label for="telefon"></label><input type="text" id="telefon" placeholder="telefonnummeret ditt.."/>
+    <tr><td>Telefon</td><td><label for="telefonnr"></label><input type="text" id="telefonnr" placeholder="telefonnummeret ditt.."/>
         <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
-        <div id="error_telefon"></div>
+        <div id="error_telefonnr"></div>
     </td></tr>
-    <tr><td>E-post</td><td><label for="epostadresse"></label><input type="text" id="epostadresse" placeholder="E-posten din.."/>
+    <tr><td>E-post</td><td><label for="epost"></label><input type="text" id="epost" placeholder="E-posten din.."/>
         <!--lager en div med id for at jeg skal få valideringsskrift under fletet-->
         <div id="error_epost"></div>
     </td></tr>
@@ -62,7 +62,7 @@
 </table>
 <br>
 <!--lager en knapp der hvis man trykker så vil den registrere billettene og vise tabellen for registrer()--->
-<button onclick="registrer()">Kjøp billett</button>
+<button onclick="registrerBillett()">Kjøp billett</button>
 <h3>Alle billetter</h3>
 
 <!--her er et annet tabell for billetter som er registrert--->
@@ -71,7 +71,7 @@
 </table>
 <br>
 <!--knapp for å slette tabellen hvis man trykker på den--->
-<button onclick="slettRegister()">Slett alle billettene</button>
+<button onclick="slettFilmRegister()">Slett alle billettene</button>
 
 </body>
 </html>

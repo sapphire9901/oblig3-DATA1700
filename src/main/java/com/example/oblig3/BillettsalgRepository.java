@@ -4,38 +4,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+
 @Repository
 public class BillettsalgRepository {
     @Autowired
-    BillettsalgRepository billettsalgRepository;
+    public JdbcTemplate db;
 
-    @PostMapping("/lagreBilett")
-    public void lagreBilett(Billettsalg billett){ billettsalgRepository.lagreBilett(billett);}
-
-    @GetMapping("/hentAlleBiletter")
-    public List<Billettsalg> hentAlleBiletter(){
-        List<Billettsalg> billett = billettsalgRepository.hentAlleBiletter();
-        Collections.sort(billett, new Comparator<Billettsalg>() {
-            @Override
-            public int compare(Billettsalg o1, Billettsalg o2) {
-                return o1.getEtternavn().compareTo(o2.getEtternavn());
-            }
-        });
-        return billett;
+    public void lagreBillett(Billettsalg filmRegister) {
+        String sql = "INSERT INTO Billettsalg (film, antall, fornavn, etternavn, telefonnr, epost)" +
+                "VALUES (?,?,?,?,?,?)";
+        db.update(sql, filmRegister.getFilm(), filmRegister.getAntall(), filmRegister.getFornavn(),
+                filmRegister.getEtternavn(), filmRegister.getTelefonnr(), filmRegister.getEpost());
     }
 
-    @GetMapping("/slettBilettene")
-    public void slettBilettene(){ billettsalgRepository.slettBilettene();}
-
-    @GetMapping("/slettEnBilett")
-    public void slettEnBilett(short id){
-        billettsalgRepository.slettEnBilett(id);
+    public List<Billettsalg> hentAlleBillett() {
+        String sql = "SELECT * FROM Billettsalg ORDER BY etternavn";
+        return db.query(sql, new BeanPropertyRowMapper(Billettsalg.class));
     }
+
+    public void slettFilmRegister() {
+        String sql = "DELETE FROM Billettsalg";
+        db.update(sql);
+    }
+
+
+
+
 
 }

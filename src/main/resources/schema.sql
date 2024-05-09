@@ -1,10 +1,11 @@
-CREATE TABLE Billettsalg(
-                            id SMALLINT NOT NULL AUTO_INCREMENT,
-                            velgFilm VARCHAR(30) NOT NULL,
-                            antall SMALLINT NOT NULL,
-                            fornavn VARCHAR(30) NOT NULL,
-                            etternavn VARCHAR(30) NOT NULL,
-                            telefonnr VARCHAR(30) NOT NULL,
-                            epost VARCHAR(30) NOT NULL,
-                            PRIMARY KEY (id)
+CREATE TABLE Billettsalg
+(
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    film VARCHAR(50) NOT NULL,
+    antall INTEGER NOT NULL,
+    fornavn VARCHAR(30) NOT NULL,
+    etternavn VARCHAR(40) NOT NULL,
+    telefonnr VARCHAR(8) NOT NULL,
+    epost VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
 );
